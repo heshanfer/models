@@ -95,3 +95,7 @@ ENV/
 .DS_Store
 
 samples/outreach/blogs/segmentation_blogpost/carvana-image-masking-challenge/
+
+
+research/object_detection/data/train.record
+research/object_detection/data/test.record
