@@ -39,9 +39,10 @@ def split(df, group):
     gb = df.groupby(group)
     return [data(filename, gb.get_group(x)) for filename, x in zip(gb.groups.keys(), gb.groups)]
 
-
 def create_tf_example(group, path):
-    with tf.gfile.GFile(os.path.join(path, '{}'.format(group.filename)), 'rb') as fid:
+    #print(group.filename)
+    f = group.filename.split(".")[0]+".jpg"
+    with tf.gfile.GFile(os.path.join(path, '{}'.format(f)), 'rb') as fid:
         encoded_jpg = fid.read()
     encoded_jpg_io = io.BytesIO(encoded_jpg)
     image = Image.open(encoded_jpg_io)
